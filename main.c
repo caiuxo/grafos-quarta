@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
 		matrixAnswer[y][x] = 1;
 	}
 		
-	printf("----------matrix ANSWER----------\n");
+	printf("----------Matrix answer----------\n");
 	//print answer matriz	
 	for(i = 0; i < vertex; i++)
 	{
@@ -107,6 +107,43 @@ int main(int argc, char *argv[]) {
 			printf("%d ", matrixAnswer[i][j]);
 			
 		printf("\n");
+	}
+	
+	printf("\n\n");
+	
+	//Grau dos vértices
+	printf("---------- Biggest/Smallest Vertex----------");
+	int grau;
+	int biggest = 0;
+	int smallest = 0;
+	
+	for(i = 0; i < vertex; i++)
+	{
+		grau = 0;
+		for(j = 0; j < vertex; j++)
+			grau += matrixAnswer[i][j];
+		
+		if (biggest < grau)
+			biggest = grau;
+			
+		if (i == 0)
+			smallest = grau;
+		else if (smallest > grau)
+			smallest = grau;
+		
+		printf("\n");
+        printf("d(%d) =  %d  ", i, grau);
+	}
+	
+	printf("\n\nBiggest: %d", biggest);
+	printf("\nSmallest grau: %d", smallest);
+	printf("\nGrafo regular: ");
+	
+	if(biggest == smallest) {
+		printf("SIM");
+	}
+	else {
+		printf("NAO");
 	}
 	
 	printf("\n\n");

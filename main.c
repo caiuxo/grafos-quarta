@@ -113,30 +113,30 @@ int main(int argc, char *argv[]) {
 	
 	//Grau dos vértices
 	printf("---------- Biggest/Smallest Vertex----------");
-	int grau;
+	int degree;
 	int biggest = 0;
 	int smallest = 0;
 	
 	for(i = 0; i < vertex; i++)
 	{
-		grau = 0;
+		degree = 0;
 		for(j = 0; j < vertex; j++)
-			grau += matrixAnswer[i][j];
+			degree += matrixAnswer[i][j];
 		
-		if (biggest < grau)
-			biggest = grau;
+		if (biggest < degree)
+			biggest = degree;
 			
 		if (i == 0)
-			smallest = grau;
-		else if (smallest > grau)
-			smallest = grau;
+			smallest = degree;
+		else if (smallest > degree)
+			smallest = degree;
 		
 		printf("\n");
-        printf("d(%d) =  %d  ", i, grau);
+        printf("d(%d) =  %d  ", i, degree);
 	}
 	
 	printf("\n\nBiggest: %d", biggest);
-	printf("\nSmallest grau: %d", smallest);
+	printf("\nSmallest degree: %d", smallest);
 	printf("\nGrafo regular: ");
 	
 	if(biggest == smallest) {

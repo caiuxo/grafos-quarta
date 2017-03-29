@@ -20,13 +20,13 @@ int main(int argc, char *argv[]) {
 	int qt;
 	
 	//int array[4][2] = { { 0, 1 }, { 1, 2 }, { 2, 3 }, { 3, 0 } };
-	int array[100][100];
-	int arrayAnswer[100][100];
+	int matrix[100][100];
+	int matrixAnswer[100][100];
 	
-	//reset the array
+	//reset the matriz
 	for(i = 0; i < 100; i++)
 		for(j = 0; j < 100; j++)
-			array[i][j] = 0;
+			matrix[i][j] = 0;
 	
 	fp = fopen("file.txt", "r");
 	i = 0;
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
 				else
 				{
 	        		//printf("QT: %d\n", qt);
-					array[i][j] = qt;
+					matrix[i][j] = qt;
 					j++;
 					
 					//control the number of connection 
@@ -75,36 +75,36 @@ int main(int argc, char *argv[]) {
 	//close file
 	fclose(fp);
 	
-	//print array received
+	//print matriz received
 	//for(i = 0; i < vertex; i++) {
 	//	for(j = 0; j < 2; j++)
-	//		printf("%d ", array[i][j]);
+	//		printf("%d ", matrix[i][j]);
 	//	
 	//	printf("\n");
 	//}
 	
-	//calculate array answer
+	//calculate matriz answer
 	for(i = 0; i < vertex; i++)
 	{
 		int x = 0, y = 0;
 		
 		for(j = 0; j < 2; j++) {
 			if(!x)
-				x = array[i][j];
+				x = matrix[i][j];
 			else
-				y = array[i][j];
+				y = matrix[i][j];
 		}
 		
-		arrayAnswer[x][y] = 1;
-		arrayAnswer[y][x] = 1;
+		matrixAnswer[x][y] = 1;
+		matrixAnswer[y][x] = 1;
 	}
 		
-	printf("----------ARRAY ANSWER----------\n");
-	//print answer array	
+	printf("----------matrix ANSWER----------\n");
+	//print answer matriz	
 	for(i = 0; i < vertex; i++)
 	{
 		for(j = 0; j < vertex; j++)
-			printf("%d ", arrayAnswer[i][j]);
+			printf("%d ", matrixAnswer[i][j]);
 			
 		printf("\n");
 	}
